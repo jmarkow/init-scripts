@@ -1,1 +1,1 @@
-sudo gsutil -m rsync -r gs://storage-clusterfs /home
+sudo gsutil -m rsync -P -r gs://storage-clusterfs /home

@@ -12,6 +12,7 @@ conda create -n "moseq2" python=3.6 -y
 source activate moseq2
 
 conda install -c conda-forge ffmpeg
+conda install jupyter ipykernel nb_conda
 
 ssh-keygen -t rsa -b 4096 -C "markowitzmeister@gmail.com"
 eval "$(ssh-agent -s)"
@@ -24,6 +25,7 @@ pip install git+ssh://git@github.com/dattalab/moseq2-pca.git@v0.1.1
 pip install git+ssh://git@github.com/dattalab/moseq2-model.git@v0.1.1 --process-dependency-links
 pip install git+ssh://git@github.com/dattalab/moseq2-viz.git@v0.1.1
 pip install git+ssh://git@github.com/dattalab/moseq2-batch.git@v0.1.1
+pip install dask_ml dask_xgboost
 
 git config --global user.email "markowitzmeister@gmail.com"
 git config --global user.name "Jeffrey Markowitz"

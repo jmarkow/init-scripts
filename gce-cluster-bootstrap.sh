@@ -20,7 +20,7 @@ ssh-add -k ~/.ssh/id_rsa
 
 read -p "Copy the ssh key to Github, press enter to continue..."
 
-pip install git+ssh://git@github.com/dattalab/moseq2-extract.git@v0.1.1-track-smoothing
+pip install git+ssh://git@github.com/dattalab/moseq2-extract.git@v0.1.1
 pip install git+ssh://git@github.com/dattalab/moseq2-pca.git@v0.1.1
 pip install git+ssh://git@github.com/dattalab/moseq2-model.git@v0.1.1 --process-dependency-links
 pip install git+ssh://git@github.com/dattalab/moseq2-viz.git@v0.1.1

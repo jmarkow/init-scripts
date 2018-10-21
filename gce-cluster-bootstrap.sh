@@ -20,11 +20,11 @@ ssh-add -k ~/.ssh/id_rsa
 
 read -p "Copy the ssh key to Github, press enter to continue..."
 
-pip install git+ssh://git@github.com/dattalab/moseq2-extract.git@v0.1.1
-pip install git+ssh://git@github.com/dattalab/moseq2-pca.git@v0.1.1
-pip install git+ssh://git@github.com/dattalab/moseq2-model.git@v0.1.1 --process-dependency-links
-pip install git+ssh://git@github.com/dattalab/moseq2-viz.git@v0.1.1
-pip install git+ssh://git@github.com/dattalab/moseq2-batch.git@v0.1.1
+pip install git+ssh://git@github.com/dattalab/moseq2-extract.git
+pip install git+ssh://git@github.com/dattalab/moseq2-pca.git
+pip install git+ssh://git@github.com/dattalab/moseq2-model.git@v0.1.2 --process-dependency-links
+pip install git+ssh://git@github.com/dattalab/moseq2-viz.git
+pip install git+ssh://git@github.com/dattalab/moseq2-batch.git
 pip install dask_ml dask_xgboost
 
 git config --global user.email "markowitzmeister@gmail.com"

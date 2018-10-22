@@ -14,18 +14,20 @@ source activate moseq2
 conda install -c conda-forge ffmpeg
 conda install jupyter ipykernel nb_conda
 
-ssh-keygen -t rsa -b 4096 -C "markowitzmeister@gmail.com"
-eval "$(ssh-agent -s)"
-ssh-add -k ~/.ssh/id_rsa
+# ssh-keygen -t rsa -b 4096 -C "markowitzmeister@gmail.com"
+# eval "$(ssh-agent -s)"
+# ssh-add -k ~/.ssh/id_rsa
 
-read -p "Copy the ssh key to Github, press enter to continue..."
-
-pip install git+ssh://git@github.com/dattalab/moseq2-extract.git
-pip install git+ssh://git@github.com/dattalab/moseq2-pca.git
-pip install git+ssh://git@github.com/dattalab/moseq2-model.git@v0.1.2 --process-dependency-links
-pip install git+ssh://git@github.com/dattalab/moseq2-viz.git
-pip install git+ssh://git@github.com/dattalab/moseq2-batch.git
-pip install dask_ml dask_xgboost
+# read -p "Copy the ssh key to Github, press enter to continue..."
 
 git config --global user.email "markowitzmeister@gmail.com"
 git config --global user.name "Jeffrey Markowitz"
+git config --global credential.helper "cache --timeout=3600"
+
+pip install git+https://jmarkow@github.com/dattalab/moseq2-extract.git
+pip install git+https://jmarkow@github.com/dattalab/moseq2-pca.git@v0.1.2
+pip install git+https://jmarkow@github.com/dattalab/moseq2-model.git@v0.1.2 --process-dependency-links
+pip install git+https://jmarkow@github.com/dattalab/moseq2-viz.git
+pip install git+https://jmarkow@github.com/dattalab/moseq2-batch.git@v0.1.2
+pip install dask_ml xgboost dask_xgboost tensorflow ipycache memory_profiler
+

@@ -35,6 +35,6 @@ pip install git+https://jmarkow@github.com/dattalab/moseq2-batch.git@v0.1.2
 pip install dask_ml xgboost dask_xgboost tensorflow ipycache memory_profiler nbdime
 
 mkdir $HOME/dev
-git clone https://github.com/dattalab/usv-notebooks.git $HOME/dev/use-notebooks
+git clone https://github.com/dattalab/usv-notebooks.git $HOME/dev/usv-notebooks
 git clone https://github.com/dattalab/mouse-rt-classifier.git $HOME/dev/mouse-rt-classifier
 git clone https://github.com/dattalab/modeling-notebooks.git $HOME/dev/modeling-notebooks

@@ -11,14 +11,17 @@ source $HOME/.bashrc
 conda create -n "moseq2" python=3.6 -y
 source activate moseq2
 
-conda install -c conda-forge ffmpeg
-conda install jupyter ipykernel nb_conda
+conda install -y -c conda-forge ffmpeg
+conda install -y jupyter ipykernel nb_conda
 
 # ssh-keygen -t rsa -b 4096 -C "markowitzmeister@gmail.com"
 # eval "$(ssh-agent -s)"
 # ssh-add -k ~/.ssh/id_rsa
 
 # read -p "Copy the ssh key to Github, press enter to continue..."
+
+# run this on the controller node for authorizing copying from buckets 
+# gsutil config
 
 git config --global user.email "markowitzmeister@gmail.com"
 git config --global user.name "Jeffrey Markowitz"

@@ -32,5 +32,5 @@ pip install git+https://jmarkow@github.com/dattalab/moseq2-pca.git@v0.1.2
 pip install git+https://jmarkow@github.com/dattalab/moseq2-model.git@v0.1.2 --process-dependency-links
 pip install git+https://jmarkow@github.com/dattalab/moseq2-viz.git
 pip install git+https://jmarkow@github.com/dattalab/moseq2-batch.git@v0.1.2
-pip install dask_ml xgboost dask_xgboost tensorflow ipycache memory_profiler
+pip install dask_ml xgboost dask_xgboost tensorflow ipycache memory_profiler nbdime
 

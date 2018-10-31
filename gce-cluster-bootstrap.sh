@@ -30,9 +30,10 @@ git config --global credential.helper "cache --timeout=3600"
 pip install git+https://jmarkow@github.com/dattalab/moseq2-extract.git
 pip install git+https://jmarkow@github.com/dattalab/moseq2-pca.git@v0.1.2
 pip install git+https://jmarkow@github.com/dattalab/moseq2-model.git@v0.1.2 --process-dependency-links
-pip install git+https://jmarkow@github.com/dattalab/moseq2-viz.git
+pip install git+https://jmarkow@github.com/dattalab/moseq2-viz.git@v0.1.2
 pip install git+https://jmarkow@github.com/dattalab/moseq2-batch.git@v0.1.2
 pip install dask_ml xgboost dask_xgboost tensorflow ipycache memory_profiler nbdime
+nbdime config-git --enable --global
 
 mkdir $HOME/dev
 git clone https://github.com/dattalab/usv-notebooks.git $HOME/dev/usv-notebooks

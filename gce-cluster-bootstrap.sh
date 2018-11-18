@@ -11,21 +11,34 @@ source $HOME/.bashrc
 conda create -n "moseq2" python=3.6 -y
 source activate moseq2
 
-conda install -c conda-forge ffmpeg
-conda install jupyter ipykernel nb_conda
+conda install -y -c conda-forge ffmpeg
+conda install -y jupyter ipykernel nb_conda
 
-ssh-keygen -t rsa -b 4096 -C "markowitzmeister@gmail.com"
-eval "$(ssh-agent -s)"
-ssh-add -k ~/.ssh/id_rsa
+# ssh-keygen -t rsa -b 4096 -C "markowitzmeister@gmail.com"
+# eval "$(ssh-agent -s)"
+# ssh-add -k ~/.ssh/id_rsa
 
-read -p "Copy the ssh key to Github, press enter to continue..."
+# read -p "Copy the ssh key to Github, press enter to continue..."
 
-pip install git+ssh://git@github.com/dattalab/moseq2-extract.git@v0.1.1
-pip install git+ssh://git@github.com/dattalab/moseq2-pca.git@v0.1.1
-pip install git+ssh://git@github.com/dattalab/moseq2-model.git@v0.1.1 --process-dependency-links
-pip install git+ssh://git@github.com/dattalab/moseq2-viz.git@v0.1.1
-pip install git+ssh://git@github.com/dattalab/moseq2-batch.git@v0.1.1
-pip install dask_ml dask_xgboost
+# run this on the controller node for authorizing copying from buckets 
+# gsutil config
 
 git config --global user.email "markowitzmeister@gmail.com"
 git config --global user.name "Jeffrey Markowitz"
+git config --global credential.helper "cache --timeout=3600"
+
+pip install git+https://jmarkow@github.com/dattalab/moseq2-extract.git
+pip install git+https://jmarkow@github.com/dattalab/moseq2-pca.git@v0.1.2
+pip install git+https://jmarkow@github.com/dattalab/moseq2-model.git@v0.1.2 --process-dependency-links
+pip install git+https://jmarkow@github.com/dattalab/moseq2-viz.git@v0.1.2
+pip install git+https://jmarkow@github.com/dattalab/moseq2-batch.git@v0.1.2
+pip install dask_ml xgboost dask_xgboost tensorflow ipycache memory_profiler nbdime
+nbdime config-git --enable --global
+
+mkdir $HOME/dev
+git clone https://github.com/dattalab/usv-notebooks.git $HOME/dev/usv-notebooks
+git clone https://github.com/dattalab/mouse-rt-classifier.git $HOME/dev/mouse-rt-classifier
+git clone https://github.com/dattalab/voseq.git $HOME/dev/voseq
+pip install -e $HOME/dev/mouse-rt-classifier
+pip install -e $HOME/dev/voseq
+git clone https://github.com/dattalab/modeling-notebooks.git $HOME/dev/modeling-notebooks

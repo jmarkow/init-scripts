@@ -7,8 +7,8 @@
 #SBATCH --time 120:00:00
 #SBATCH --gres gpu:2
 
-sudo su - jmarkow
-source /home/jmarkow/.bashrc
+sudo su - $(whoami)
+source $HOME/.bashrc
 date;hostname;pwd
 
 # module add python

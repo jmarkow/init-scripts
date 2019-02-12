@@ -5,9 +5,9 @@
 #SBATCH -n 14
 #SBATCH --mem 50GB
 #SBATCH --time 120:00:00
-#SBATCH --gres gpu:2
+#SBATCH --gres gpu:1
 
-sudo su - $(whoami)
+#sudo su - $(whoami)
 source $HOME/.bashrc
 date;hostname;pwd
 

@@ -11,7 +11,11 @@ date;hostname;pwd
 # export XDG_RUNTIME_DIR=${TMPDIR}
 unset XDG_RUNTIME_DIR
 
-port=$(shuf -i 20000-30000 -n 1)
+if [ -z "$JUPYTER_PORT" ]; then 
+	port=$(shuf -i 20000-30000 -n 1)
+else
+	port=$JUPYTER_PORT
+fi
 
 zone=( `gcloud compute instances list --filter="name=($(hostname))" --format='csv[no-heading](zone)'` )
 project=( `gcloud compute instances describe $(hostname) --zone=$zone | grep zone |  grep projects | sed 's/.*projects\/\([a-z|\-]*\)\/.*/\1/' | head -1`)

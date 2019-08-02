@@ -18,6 +18,8 @@ if [ -n "$dir1" ] && [ -n "$dir2" ]; then
   else
     echo -e "Directories ${dir1} and ${dir2} are different, see previous output for details"
   fi
+else
+  echo -e "You must define the variables dir1 and dir2 via the sbatch export option"
 fi
 
 date

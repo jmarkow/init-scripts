@@ -7,6 +7,7 @@ cat >> ~/.bashrc << END
 PATH=\$HOME/miniconda3/bin:\$PATH
 END
 source $HOME/.bashrc
+conda init bash
 
 conda create -n "moseq2" python=3.6 -y
 conda activate moseq2

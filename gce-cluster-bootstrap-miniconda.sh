@@ -8,6 +8,15 @@ PATH=\$HOME/miniconda3/bin:\$PATH
 END
 source $HOME/.bashrc
 
+git config --global user.email "markowitzmeister@gmail.com"
+git config --global user.name "Jeffrey Markowitz"
+git config --global credential.helper "cache --timeout=3600"
+mkdir $HOME/dev
+
+git clone https://github.com/jmarkow/init-scripts $HOME/dev/init-scripts
+
+./gce-cluster-bootstrap-repos.sh
+
 conda create -n "moseq2" python=3.6 -y
 conda activate moseq2
 ./gce-cluster-boostrap-env.sh

@@ -7,6 +7,7 @@ cat >> ~/.bashrc << END
 PATH=\$HOME/miniconda3/bin:\$PATH
 END
 source $HOME/.bashrc
+conda init bash
 
 git config --global user.email "markowitzmeister@gmail.com"
 git config --global user.name "Jeffrey Markowitz"

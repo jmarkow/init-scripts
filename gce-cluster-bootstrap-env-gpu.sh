@@ -1,1 +1,1 @@
-conda install tensorflow-gpu keras
+conda install -y tensorflow-gpu keras

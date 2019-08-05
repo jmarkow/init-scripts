@@ -9,11 +9,18 @@ END
 source $HOME/.bashrc
 conda init bash
 
+git config -global user.email "markowitzmeister@gmail.com"
+git config --global user.name "Jeffrey Markowitz"
+git config --global credential.helper "cache --timeout=3600"
+
+mkdir $HOME/dev
+git clone https://github.com/jmarkow/init-scripts.git $HOME/dev/init-scripts
+
 conda create -n "moseq2" python=3.6 -y
 conda activate moseq2
-./gce-cluster-boostrap-env.sh
+$HOME/dev/init-scripts/gce-cluster-bootstrap-env.sh
 
 conda create -n "moseq2-gpu" python=3.6 -y
 conda activate moseq2-gpu
-./gce-cluster-bootstrap-env.sh
-./gce-cluster-bootstrap-env-gpu.sh
+$HOME/dev/init-scripts/gce-cluster-bootstrap-env.sh
+$HOME/dev/init-scripts/gce-cluster-bootstrap-env-gpu.sh

@@ -16,8 +16,17 @@
 date;hostname;pwd
 
 if [ -n "$dir1" ] && [ -n "$dir2" ]; then
-  rsync -avu --stats --progress ${dir1} ${dir2})
+  echo -e "Starting backup between directories ${dir1} and ${dir2}"
+  rsync -avu --stats --progress ${dir1} ${dir2}
   echo -e "Backup between ${dir1} and ${dir2} complete!"
+  date
+  output=$(rsync -niac ${dir1} ${dir2})
+  echo -e "$output"
+  if [ -z "$output" ]; then
+    echo -e "Directories ${dir1} and ${dir2} are identical"
+  else
+    echo -e "Directories ${dir1} and ${dir2} are different, see previous output for details"
+  fi
 else
   echo -e "You must define the variables dir1 and dir2 via the sbatch export option"
 fi

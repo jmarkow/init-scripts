@@ -10,7 +10,7 @@
 #
 # dir1="new_path"
 # dir2="backup_path"
-# sbatch slurm_backup.sh --export=dir1=$dir1,dir2=$dir2
+# sbatch --export=dir1=$dir1,dir2=$dir2 slurm_backup.sh
 #
 # you must define dir1 and dir2 via --export=dir1=$dir1,dir2=$dir2, e.g.
 date;hostname;pwd

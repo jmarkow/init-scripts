@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name backup_check_%j
+#SBATCH --job-name backup_check
 #SBATCH --output backup_check_%j.log
 #SBATCH --partition medium
 #SBATCH -n 4

@@ -1,16 +1,16 @@
 #!/bin/bash
-#SBATCH --job-name backup_check
+#SBATCH --job-name backup_check_%j
 #SBATCH --output backup_check_%j.log
 #SBATCH --partition medium
 #SBATCH -n 4
 #SBATCH --mem 20GB
 #SBATCH --time 96:00:00
 
-# example 
+# example
 #
 # dir1="new_path"
 # dir2="backup_path"
-# sbatch slurm_back_check.sh --export=dir1=$dir1,dir2=$dir2
+# sbatch slurm_backup_check.sh --export=dir1=$dir1,dir2=$dir2
 #
 # you must define dir1 and dir2 via --export=dir1=$dir1,dir2=$dir2, e.g.
 date;hostname;pwd

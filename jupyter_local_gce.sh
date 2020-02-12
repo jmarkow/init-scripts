@@ -16,6 +16,6 @@ echo -e "\nLocal URI: http://localhost:${port}"
 echo -e "Local URI: http://localhost:${port}"
 echo -e "Remote URI: http://${external_ip}:${port}"
 
-source activate moseq2
+#source activate moseq2
 cd ${HOME}
 jupyter notebook --no-browser --port=${port} --ip=0.0.0.0 --NotebookApp.custom_display_url="http://$external_ip:$port"

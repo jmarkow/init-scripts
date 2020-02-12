@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --job-name backup_check
-#SBATCH --output backup_check_%j.log
+#SBATCH --job-name backup
+#SBATCH --output backup_%j.log
 #SBATCH --partition medium
 #SBATCH -n 4
 #SBATCH --mem 20GB
@@ -10,13 +10,16 @@
 #
 # dir1="new_path"
 # dir2="backup_path"
-# sbatch --export=dir1=$dir1,dir2=$dir2 slurm_backup_check.sh 
+# sbatch --export=dir1=$dir1,dir2=$dir2 slurm_backup.sh
 #
 # you must define dir1 and dir2 via --export=dir1=$dir1,dir2=$dir2, e.g.
 date;hostname;pwd
 
 if [ -n "$dir1" ] && [ -n "$dir2" ]; then
-  echo -e "Checking backup between directories ${dir1} and ${dir2}"
+  echo -e "Starting backup between directories ${dir1} and ${dir2}"
+  rsync -avu --stats --progress ${dir1} ${dir2}
+  echo -e "Backup between ${dir1} and ${dir2} complete!"
+  date
   output=$(rsync -niac ${dir1} ${dir2})
   echo -e "$output"
   if [ -z "$output" ]; then

@@ -7,7 +7,7 @@ if [[ $PREEMPTED ]]; then
 fi
 
 PREEMPTED=( `/apps/slurm/current/bin/sinfo | grep drain~ | sed -n 's/.* \(.*compute.*\).*/\1/p'` );
-
+echo $PREEMPTED
 if [[ $PREEMPTED ]]; then
 	/apps/slurm/current/bin/scontrol update nodename=$PREEMPTED state=idle
 fi

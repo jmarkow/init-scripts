@@ -4,15 +4,17 @@
 #SBATCH --partition medium
 #SBATCH -n 4
 #SBATCH --mem 20GB
-#SBATCH --time 96:00:00
+#SBATCH --time 120:00:00
 
 # example
 #
 # dir1="new_path"
 # dir2="backup_path"
-# sbatch slurm_backup.sh --export=dir1=$dir1,dir2=$dir2
+# sbatch --export=dir1=$dir1,dir2=$dir2 slurm_backup.sh
 #
-# you must define dir1 and dir2 via --export=dir1=$dir1,dir2=$dir2, e.g.
+# note that export must come BEFORE the script name in the sbatch call
+#
+# you must define dir1 and dir2 via --export=dir1=$dir1,dir2=$dir2
 date;hostname;pwd
 
 if [ -n "$dir1" ] && [ -n "$dir2" ]; then

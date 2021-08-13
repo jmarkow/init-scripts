@@ -1,11 +1,10 @@
 #!/bin/bash
 #SBATCH --job-name jupyter
 #SBATCH --output jupyter_%j.log
-#SBATCH --partition debug
+#SBATCH --partition small-gpu-b-preemptible
 #SBATCH -n 14
 #SBATCH --mem 50GB
 #SBATCH --time 120:00:00
-#SBATCH --gres gpu:1
 
 #sudo su - $(whoami)
 source $HOME/.bashrc
@@ -32,7 +31,7 @@ echo -e "Local URI: http://localhost:${port}"
 echo -e "Remote URI: http://${external_ip}:${port}"
 
 # source ${HOME}/.bashrc
-source activate moseq2
+source activate moseq2-gpu
 cd ${HOME}
 jupyter notebook --no-browser --port=${port} --ip=0.0.0.0 --NotebookApp.custom_display_url="http://$external_ip:$port"
 

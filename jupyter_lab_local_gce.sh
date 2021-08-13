@@ -11,11 +11,5 @@ zone=( `gcloud compute instances list --filter="name=($(hostname))" --format='cs
 project=( `gcloud compute instances describe $(hostname) --zone=$zone | grep zone |  grep projects | sed 's/.*projects\/\([a-z|\-]*\)\/.*/\1/' | head -1`)
 external_ip=( `gcloud compute instances list | grep $(hostname) |  awk '{print $--NF}'` )
 
-echo -e "GCE tunnel command: gcloud compute --project=${project} ssh --zone=${zone} $(hostname) -- -NL ${port}:localhost:${port}"
-echo -e "\nLocal URI: http://localhost:${port}"
-echo -e "Local URI: http://localhost:${port}"
-echo -e "Remote URI: http://${external_ip}:${port}"
-
-#source activate moseq2
 cd ${HOME}
-jupyter notebook --no-browser --port=${port} --ip=0.0.0.0 --NotebookApp.custom_display_url="http://$external_ip:$port"
+jupyter lab --no-browser --port=${port} --ip=0.0.0.0 --NotebookApp.custom_display_url="http://$external_ip:$port"
